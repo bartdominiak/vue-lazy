@@ -1,6 +1,6 @@
 {
   "name": "vue-lazy",
-  "version": "1.0.2",
+  "version": "0.1.0-alpha.1",
   "description": "Lazyloading based on Intersection Observer API",
   "main": "dist/vue-lazy.min.js",
   "engines": {
