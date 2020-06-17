@@ -1,0 +1,13 @@
+// Common
+node_modules
+.DS_Store
+
+// Analyser
+dist/stats.json
+dist/report.html
+
+// Storybook
+storybook-static
+
+// Docs
+docs/.vuepress/dist
