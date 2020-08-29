@@ -1,7 +1,7 @@
 /* eslint-env node */
 
 module.exports = {
-  stories: ['../../src/**/*.stories.@(js)'],
+  stories: ['../../src/**/*.stories.@(js|mdx)'],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-actions',

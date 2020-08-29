@@ -1,8 +1,10 @@
 {
   "name": "vue-lazy",
-  "version": "0.1.0-alpha.1",
+  "version": "0.2.0",
   "description": "Lazyloading based on Intersection Observer API",
-  "main": "dist/vue-lazy.min.js",
+  "main": "dist/vue-lazy.umd.js",
+  "module": "dist/vue-lazy.esm.js",
+  "unpkg": "dist/vue-lazy.js",
   "engines": {
     "node": ">=12.13.0 <13.0.0"
   },
@@ -22,7 +24,10 @@
   },
   "keywords": [
     "vue",
-    "vue-lazy"
+    "vue-lazy",
+    "lazy",
+    "image",
+    "picture"
   ],
   "author": "smugers@gmail.com",
   "license": "MIT",

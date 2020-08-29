@@ -54,7 +54,7 @@ export default {
       }
 
       return 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
-    },
+    }
   },
   mounted() {
     const observer = new IntersectionObserver(entry => {
