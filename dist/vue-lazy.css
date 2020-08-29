@@ -1,9 +1,5 @@
 .lazyload {
-    transition: opacity 0.3s ease;
-}
-
-.lazyload,
-.lazyloading {
+    transition: opacity 0.5s ease-in-out;
     opacity: 0;
 }
 
