@@ -12,8 +12,8 @@
 export default {
   props: {
     src: {
-      type: String,
-      default: () => null
+      required: true,
+      type: String
     },
     width: {
       type: String,
