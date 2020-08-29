@@ -39,6 +39,7 @@
     "vue": "^2.6.12"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "intersection-observer": "^0.11.0"
   },
   "devDependencies": {
