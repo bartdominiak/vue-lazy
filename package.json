@@ -1,6 +1,6 @@
 {
   "name": "vue-lazy",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Lazyloading based on Intersection Observer API",
   "main": "dist/vue-lazy.umd.js",
   "module": "dist/vue-lazy.esm.js",
