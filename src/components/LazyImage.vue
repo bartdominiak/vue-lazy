@@ -1,13 +1,3 @@
-<template>
-  <img
-    :class="getClass"
-    :src="getSrc"
-    :srcset="getSrcset"
-    :width="width"
-    :height="height"
-  >
-</template>
-
 <script>
 export default {
   props: {
@@ -23,13 +13,22 @@ export default {
       type: String,
       default: () => null
     },
+    alt: {
+      type: String,
+      default: () => null
+    },
     srcset: {
       type: String,
       default: () => null
     },
-    config: {
+    intersectionConfig: {
       type: Object,
       default: () => ({ threshold: [0, 1] })
+    },
+    tag: {
+      type: String,
+      default: () => 'img',
+      validator: value => ['img', 'picture'].includes(value)
     }
   },
   data: () => ({
@@ -62,7 +61,7 @@ export default {
         this.onLoad()
         observer.disconnect()
       }
-    }, this.config)
+    }, this.intersectionConfig)
 
     observer.observe(this.$el)
   },
@@ -71,6 +70,26 @@ export default {
       this.isLoaded = true
       this.$emit('loaded', true)
     }
+  },
+  render(h) {
+    const ImageComponent = h('img', {
+      attrs: {
+        src: this.getSrc,
+        srcset: this.getSrcset,
+        width: this.width,
+        height: this.height,
+        alt: this.alt
+      },
+      domProps: this.$attrs,
+      class: this.getClass
+    })
+
+    if (this.tag === 'picture') {
+      const pictureComponent = h('picture', this.isLoaded ? [this.$slots.default, ImageComponent] : ImageComponent)
+      return pictureComponent
+    }
+
+    return ImageComponent
   }
 }
 </script>

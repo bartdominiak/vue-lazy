@@ -65,15 +65,14 @@ If you want to see live examples, please jump to Storybook page.
 
 ### Picture
 ```html
-<picture>
+<lazy-image
+  src="https://via.placeholder.com/250"
+  alt="example aternative text"
+  tag="picture"
+>
   <source media="(min-width:1366px)" srcset="https://via.placeholder.com/1360x300">
   <source media="(min-width:1024px)" srcset="https://via.placeholder.com/1024x300">
-
-  <lazy-image
-    src="https://via.placeholder.com/250"
-    alt="example aternative text"
-  />
-</picture>
+</lazy-image>
 ```
 
 ## Contribution
