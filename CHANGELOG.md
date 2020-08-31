@@ -6,9 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.3] - 2020-08-31
+### Updated
+- Moved picture tag as a integral part of LazyImage Component
+
 ## [0.2.2] - 2020-08-29
 ### Added
-- core-js
+- Core-js
 
 ## [0.2.1] - 2020-08-29
 ### Updated
