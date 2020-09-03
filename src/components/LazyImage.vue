@@ -85,8 +85,7 @@ export default {
     })
 
     if (this.tag === 'picture') {
-      const pictureComponent = h('picture', this.isLoaded ? [this.$slots.default, ImageComponent] : ImageComponent)
-      return pictureComponent
+      return h('picture', [this.$slots.default, ImageComponent])
     }
 
     return ImageComponent
