@@ -18,37 +18,7 @@ Please note that this lib is on very early stage.
 
 ## Installation & Usage
 ### `Vue@3` version
-#### Installation
-
-```terminal
-  yarn add vue-lazy@next // or npm install vue-lazy@next
-```
-
-#### Usage - Globally
-
-```js
-import { createApp } from 'vue'
-import App from './App.vue'
-
-import VueLazy from 'vue-lazy'
-import 'vue-lazy/dist/vue-lazy.css'
-
-const myApp = createApp(App)
-
-myApp.use(VueLazy)
-myApp.mount('#app')
-```
-
-#### Usage - Locally
-
-```js
-import { LazyImage } from 'vue-lazy'
-import 'vue-lazy/dist/vue-lazy.css'
-
-export default {
-  components: { LazyImage }
-}
-```
+Will be added soon
 
 ### `Vue@2` version
 #### Installation
