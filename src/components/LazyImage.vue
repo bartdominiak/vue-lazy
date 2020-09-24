@@ -1,5 +1,8 @@
 <script>
+import { onMounted, computed, reactive } from 'vue'
+
 export default {
+  name: 'LazyImage',
   props: {
     src: {
       required: true,
@@ -31,64 +34,43 @@ export default {
       validator: value => ['img', 'picture'].includes(value)
     }
   },
-  data: () => ({
-    isLoaded: false
-  }),
-  computed: {
-    getSrc() {
-      return this.isLoaded ? this.src : this.placeholder
-    },
-    getSrcset() {
-      return this.isLoaded ? this.srcset : null
-    },
-    getClass() {
-      return [
+  setup(props, { emit }) {
+    const state = reactive({
+      isLoaded: false,
+      getSrc: computed(() => state.isLoaded ? state.src : state.placeholder),
+      getSrcset: computed(() => state.isLoaded ? state.srcset : null),
+      getClass: computed(() => [
         'lazyload',
-        { 'lazyloaded': this.isLoaded }
-      ]
-    },
-    placeholder() {
-      if (this.width && this.height) {
-        return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${this.width} ${this.height}'%3E%3C/svg%3E`
-      }
+        { 'lazyloaded': state.isLoaded }
+      ]),
+      placeholder: computed(() => {
+        if (props.width && props.height) {
+          return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${props.width} ${props.height}'%3E%3C/svg%3E`
+        }
 
-      return 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
-    }
-  },
-  mounted() {
-    const observer = new IntersectionObserver(entry => {
-      if (entry[0] && entry[0].isIntersecting) {
-        this.onLoad()
-        observer.disconnect()
-      }
-    }, this.intersectionConfig)
-
-    observer.observe(this.$el)
-  },
-  methods: {
-    onLoad() {
-      this.isLoaded = true
-      this.$emit('loaded', true)
-    }
-  },
-  render(h) {
-    const ImageComponent = h('img', {
-      attrs: {
-        src: this.getSrc,
-        srcset: this.getSrcset,
-        width: this.width,
-        height: this.height,
-        alt: this.alt
-      },
-      domProps: this.$attrs,
-      class: this.getClass
+        return 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+      })
     })
 
-    if (this.tag === 'picture') {
-      return h('picture', [this.$slots.default, ImageComponent])
+    function onLoad() {
+      state.isLoaded = true
+      emit('loaded', true)
     }
 
-    return ImageComponent
+    onMounted(() => {
+      const observer = new IntersectionObserver(entry => {
+        if (entry[0] && entry[0].isIntersecting) {
+          onLoad()
+          observer.disconnect()
+        }
+      }, props.intersectionConfig)
+
+      observer.observe(this.$el)
+    })
+
+    return () => {
+      // TODO
+    }
   }
 }
 </script>

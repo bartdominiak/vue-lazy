@@ -2,8 +2,8 @@ import './polyfills'
 
 import LazyImage from './components/LazyImage.vue'
 
-const install = Vue => {
-  Vue.component('lazy-image', LazyImage)
+const install = app => {
+  app.component('lazy-image', LazyImage)
 }
 
 export default {
