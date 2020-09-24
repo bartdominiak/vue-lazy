@@ -5,7 +5,11 @@ const config = Object.assign({}, base, {
     exports: 'named',
     name: 'VueLazy',
     file: 'dist/vue-lazy.umd.js',
-    format: 'umd'
+    format: 'umd',
+    globals: {
+      'vue': 'vue',
+      'intersection-observer': 'intersection-observer'
+    }
   },
   external: [
     'vue'

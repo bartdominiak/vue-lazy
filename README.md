@@ -9,17 +9,55 @@
 Please note that this lib is on very early stage.
 
 ## Storybook
-- 📕 [Stories](https://vue-lazy.vercel.app)
-- 📺 [Props/Event](https://vue-lazy.vercel.app/?path=/story/image-docs--page)
+- 📕 [Example](https://vue-lazy.surge.sh)
+- 📺 [Props/Events/Slots](https://vue-lazy.surge.sh/?path=/docs/image--default)
 
 ## Benefits
 - Lightweight
 - Picture tag support
 
-## Usage
-There are two ways to use it.
+## Installation & Usage
+### `Vue@3` version
+#### Installation
 
-### Globally
+```terminal
+  yarn add vue-lazy@next // or npm install vue-lazy@next
+```
+
+#### Usage - Globally
+
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import VueLazy from 'vue-lazy'
+import 'vue-lazy/dist/vue-lazy.css'
+
+const myApp = createApp(App)
+
+myApp.use(VueLazy)
+myApp.mount('#app')
+```
+
+#### Usage - Locally
+
+```js
+import { LazyImage } from 'vue-lazy'
+import 'vue-lazy/dist/vue-lazy.css'
+
+export default {
+  components: { LazyImage }
+}
+```
+
+### `Vue@2` version
+#### Installation
+
+```terminal
+  yarn add vue-lazy // or npm install vue-lazy
+```
+
+#### Usage - Globally
 
 ```js
 import Vue from 'vue'
@@ -29,23 +67,22 @@ import 'vue-lazy/dist/vue-lazy.css'
 Vue.use(VueLazy)
 ```
 
-### Locally
+#### Usage - Locally
 
 ```js
 import { LazyImage } from 'vue-lazy'
 import 'vue-lazy/dist/vue-lazy.css'
 
 export default {
-  components: {
-    LazyImage
-  }
+  components: { LazyImage }
 }
 ```
 
-## Examples
+### Example usage
 If you want to see live examples, please jump to Storybook page.
 
 ### Image
+
 ```html
 <lazy-image
   src="https://via.placeholder.com/250"
@@ -75,5 +112,25 @@ If you want to see live examples, please jump to Storybook page.
 </lazy-image>
 ```
 
+## Development
+
+Install necessary depandancies with yarn or npm
+```
+  yarn // or npm install
+```
+
+Run Storybook for development mode
+```
+  yarn storybook:dev
+```
+
+Release
+```
+  yarn release
+```
+
 ## Contribution
-Feel free to grab an issue from the list, just remember to squash your commits before merge.
+If you have a feature request then feel free to start a new issue, or just grab existing one.
+
+## License
+MIT

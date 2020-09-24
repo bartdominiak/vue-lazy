@@ -1,12 +1,12 @@
 import LazyImage from '../components/LazyImage.vue'
-import '../../dist/vue-lazy.css'
 
 export default {
   title: 'Image',
+  component: LazyImage
 }
 
-export const Image = () => ({
-  components: { LazyImage },
+export const Image = (_, { argTypes }) => ({
+  props: Object.keys(argTypes),
   template: `
     <lazy-image
       src="https://via.placeholder.com/250"
@@ -17,8 +17,8 @@ export const Image = () => ({
   `
 })
 
-export const ImageWithSrcset = () => ({
-  components: { LazyImage },
+export const ImageWithSrcset = (_, { argTypes }) => ({
+  props: Object.keys(argTypes),
   template: `
     <lazy-image
       src="https://via.placeholder.com/250"
@@ -30,8 +30,8 @@ export const ImageWithSrcset = () => ({
   `
 })
 
-export const Picture = () => ({
-  components: { LazyImage },
+export const Picture = (_, { argTypes }) => ({
+  props: Object.keys(argTypes),
   template: `
     <lazy-image
       src="https://via.placeholder.com/250"
